@@ -47,25 +47,32 @@ fn main() {
         println!("{}",file_1_data_str);
         process::exit(0);
     }
+    
 
-    let min_str_len = cmp::min(file_1_data_str.len(), file_2_data_str.len());
+    let file_1_data_str_max_idx = file_1_data_str.char_indices().count();
+    let file_2_data_str_max_idx = file_2_data_str.char_indices().count();
+
+    let min_str_len = cmp::min(file_1_data_str_max_idx, file_2_data_str_max_idx);
 
     //dbg!(min_str_len);
 
     for cur_len in (1..min_str_len).rev(){
         //dbg!(cur_len);
         
-        let f1_slice = &file_1_data_str[..cur_len];
-        let f2_slice = &file_2_data_str[..cur_len];
+        let (f1_sl_idx, _) = file_1_data_str.char_indices().nth(cur_len).unwrap();
+        let (f2_sl_idx, _) = file_2_data_str.char_indices().nth(cur_len).unwrap();
+
+        let f1_slice = &file_1_data_str[..f1_sl_idx];
+        let f2_slice = &file_2_data_str[..f2_sl_idx];
 
         if file_2_data_str.ends_with(f1_slice){
             //dbg!(f1_slice);
-            println!("{}{}",file_2_data_str,&file_1_data_str[cur_len..]);
+            println!("{}{}",file_2_data_str,&file_1_data_str[f1_sl_idx..]);
             process::exit(0);
         }
         else if file_1_data_str.ends_with(f2_slice) {
             //dbg!(f2_slice);
-            println!("{}{}",file_1_data_str,&file_2_data_str[cur_len..]);
+            println!("{}{}",file_1_data_str,&file_2_data_str[f2_sl_idx..]);
             process::exit(0);
         }
 
