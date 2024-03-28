@@ -78,6 +78,6 @@ fn main() {
 
     } 
 
-    println!("{}{}",file_1_data_str,file_2_data_str);
+    //println!("{}{}",file_1_data_str,file_2_data_str);
 
 }
