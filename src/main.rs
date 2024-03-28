@@ -11,7 +11,7 @@ fn show_usage(){
 
     example: "hello world" "world peace" > "hello world peace"
 
-    if no overlap is found, then the concatenated result is output (file1 first)
+    if no overlap is found, then nothing is output
 
     "#);
 
