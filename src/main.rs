@@ -121,12 +121,9 @@ fn overlap_merge_two_string(
             best_match = suffix_immediate_overlap_string;
             break;
         }
-
-        println!("{}", short_idx);
     }
 
     return best_match;
-   
 }
 
 fn main() {
@@ -152,7 +149,6 @@ fn main() {
 
     println!("{}", om_res);
     process::exit(0);
-
 }
 
 #[test]
